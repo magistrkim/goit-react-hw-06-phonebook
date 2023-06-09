@@ -19,19 +19,6 @@ const Contacts = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const storedContacts = JSON.parse(localStorage.getItem('contacts'));
-  //   if (storedContacts) {
-  //     setContacts(storedContacts);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (allContacts.length) {
-  //     localStorage.setItem('contacts', JSON.stringify(allContacts));
-  //   }
-  // }, [allContacts]);
-
   const isDublicate = name => {
     const normilizedName = name.toLowerCase();
     const result = allContacts.find(({ name }) => {

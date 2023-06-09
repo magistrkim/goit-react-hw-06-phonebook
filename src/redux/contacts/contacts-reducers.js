@@ -1,17 +1,14 @@
-import { ADD_CONTACTS, REMOVE_CONTACTS } from './contacts-types';
+import { createReducer } from '@reduxjs/toolkit';
+import { addContacts, removeContacts } from './contacts-actions';
 
-const initialState = [];
-
-const contactsReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case ADD_CONTACTS:
-      return  [...state, payload ];
-    case REMOVE_CONTACTS:
-      return state.filter(item => item.id !== payload);
-
-    default:
-      return state;
-  }
-};
+const contactsReducer = createReducer([], {
+  [addContacts]: (state, { payload }) => [...state, payload]
+  // {
+  // state.push(payload) because of immer 
+  // }
+  ,
+  [removeContacts]: (state, { payload }) =>
+    state.filter(item => item.id !== payload),
+});
 
 export default contactsReducer;
