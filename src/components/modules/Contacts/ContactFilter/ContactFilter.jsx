@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import css from './contact-filter.module.css';
 
-const ContactFilter = ({ handleChange }) => {
+const ContactFilter = ({ handleChange, value }) => {
   return (
     <>
       <label className={css.label} htmlFor="">
         Find contacts by name
       </label>
       <input
+        value={value}
         className={css.input}
         onChange={handleChange}
         placeholder="Please, type the name"

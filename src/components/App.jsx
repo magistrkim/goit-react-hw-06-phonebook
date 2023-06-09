@@ -1,9 +1,15 @@
 import Contacts from './modules/Contacts/Contacts';
+import { Provider } from 'react-redux';
+import store from 'redux/store';
 
-export const App = () => {
+const App = () => {
   return (
-    <div className="App">
-      <Contacts />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Contacts />
+      </div>
+    </Provider>
   );
 };
+
+export default App;
