@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContacts, removeContacts } from 'redux/contacts/contacts-actions';
-import { setFilter } from 'redux/filter/filter-actions';
+import { addContact, removeContact } from 'redux/contacts/contacts-slice';
+import { setFilter } from 'redux/filter/filter-slice';
 import {
   getFilteredContacts,
   getAllContacts,
@@ -31,13 +31,13 @@ const Contacts = () => {
     if (isDublicate(name)) {
       return Notify.warning(`${name} is already in contact list!`);
     }
-    dispatch(addContacts({ name, number }));
+    dispatch(addContact({ name, number }));
     // const action = addContacts({ name, number });
     // dispatch(action);
   };
 
   const handleRemoveContact = id => {
-    dispatch(removeContacts(id));
+    dispatch(removeContact(id));
     // const action = removeContacts(id);
     // dispatch(action);
 
